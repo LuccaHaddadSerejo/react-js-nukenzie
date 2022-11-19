@@ -58,11 +58,11 @@ function App() {
     <div className="App">
       <Header></Header>
       <main className="main container">
-        <div className="aside-container">
+        <section className="aside-container">
           <Aside addItem={addItem}></Aside>
           <TotalMoney value={total}></TotalMoney>
-        </div>
-        <div>
+        </section>
+        <section className="list-container">
           <Filter
             filterEntry={filterItemEntry}
             filterRemove={filterItemLeft}
@@ -79,7 +79,7 @@ function App() {
               );
             })}
           </FinanceList>
-        </div>
+        </section>
       </main>
     </div>
   );

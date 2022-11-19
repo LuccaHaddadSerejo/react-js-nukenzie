@@ -1,0 +1,17 @@
+.filter {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.filter-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: #212529;
+  margin-bottom: 20px;
+}
+
+.filter-div {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
