@@ -1,18 +1,18 @@
-import Button from "../button";
+import { ButtonTwo } from "../button";
 
 function Filter({ filterEntry, filterRemove, filterAll }) {
   return (
     <div>
       <h2>Resumo financeiro</h2>
-      <Button onClick={() => filterAll()} type={"button"}>
+      <ButtonTwo onClick={() => filterAll()} type={"button"}>
         Todos
-      </Button>
-      <Button onClick={() => filterEntry()} type={"button"}>
+      </ButtonTwo>
+      <ButtonTwo onClick={() => filterEntry()} type={"button"}>
         Entradas
-      </Button>
-      <Button onClick={() => filterRemove()} type={"button"}>
+      </ButtonTwo>
+      <ButtonTwo onClick={() => filterRemove()} type={"button"}>
         Despesas
-      </Button>
+      </ButtonTwo>
     </div>
   );
 }

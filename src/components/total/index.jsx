@@ -1,11 +1,13 @@
+import "./style.css";
+
 function TotalMoney({ value }) {
   return (
-    <div>
-      <div>
-        <h2>Valor total:</h2>
-        <span>R$ {value}</span>
+    <div className="total-container">
+      <div className="total-div">
+        <h2 className="total-title">Valor total:</h2>
+        <span className="total-value">R$ {value}</span>
       </div>
-      <span>O valor se refere ao saldo</span>
+      <span className="total-span">O valor se refere ao saldo</span>
     </div>
   );
 }

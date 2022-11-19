@@ -5,6 +5,7 @@ import FinanceList from "./components/mainList";
 import ItemCard from "./components/card";
 import Filter from "./components/filterSection";
 import TotalMoney from "./components/total";
+import Header from "./components/header";
 
 function App() {
   const [financeResume, setFinanceResume] = useState([]);
@@ -55,32 +56,31 @@ function App() {
 
   return (
     <div className="App">
-      <div>
-        <div>
+      <Header></Header>
+      <main className="main container">
+        <div className="aside-container">
           <Aside addItem={addItem}></Aside>
-        </div>
-        <div>
           <TotalMoney value={total}></TotalMoney>
         </div>
-      </div>
-      <div>
-        <Filter
-          filterEntry={filterItemEntry}
-          filterRemove={filterItemLeft}
-          filterAll={filterAll}
-        ></Filter>
-        <FinanceList>
-          {financeResume.map((elt, index) => {
-            return (
-              <ItemCard
-                key={index}
-                item={elt}
-                removeItem={removeItem}
-              ></ItemCard>
-            );
-          })}
-        </FinanceList>
-      </div>
+        <div>
+          <Filter
+            filterEntry={filterItemEntry}
+            filterRemove={filterItemLeft}
+            filterAll={filterAll}
+          ></Filter>
+          <FinanceList>
+            {financeResume.map((elt, index) => {
+              return (
+                <ItemCard
+                  key={index}
+                  item={elt}
+                  removeItem={removeItem}
+                ></ItemCard>
+              );
+            })}
+          </FinanceList>
+        </div>
+      </main>
     </div>
   );
 }

@@ -1,0 +1,39 @@
+.menu-full {
+  width: 100%;
+  border-bottom: 1px solid black;
+  margin-bottom: 39px;
+}
+
+.header {
+  height: 88px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: rgb(253, 55, 126);
+  font-weight: 900;
+}
+
+.gradient {
+  color: rgb(33, 37, 41);
+  font-weight: 900;
+}
+
+.nav-button {
+  height: 40px;
+  width: 64px;
+  border: 1.4px solid #e9ecef;
+  background-color: #e9ecef;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #343a40;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.nav-button:hover {
+  background-color: #fd377e;
+  color: #ffffff;
+}

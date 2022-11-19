@@ -1,0 +1,10 @@
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.aside-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
