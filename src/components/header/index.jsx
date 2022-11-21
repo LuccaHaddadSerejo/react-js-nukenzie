@@ -1,13 +1,14 @@
 import "./style.css";
+import logo from "../../assets/img/Nu Kenzie.svg";
 
-function Header() {
+function Header({ changePage }) {
   return (
     <div className="menu-full">
       <header className="container header">
-        <h1 className="logo">
-          Nu <span className="gradient">Kenzie</span>
-        </h1>
-        <button className="nav-button">Início</button>
+        <img src={logo} alt="" />
+        <button className="nav-button" onClick={() => changePage()}>
+          Início
+        </button>
       </header>
     </div>
   );

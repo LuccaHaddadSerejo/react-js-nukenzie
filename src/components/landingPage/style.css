@@ -1,0 +1,48 @@
+.all {
+  height: 100vh;
+  width: 100%;
+  background-color: #212529;
+}
+
+.landing-full {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.description-div {
+  max-width: 350px;
+}
+
+.description-title {
+  font-weight: 800;
+  font-size: 38px;
+  line-height: 48px;
+  color: #ffffff;
+  margin-top: 30px;
+  margin-bottom: 28px;
+}
+
+.description-p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #ffffff;
+  margin-bottom: 28px;
+}
+
+.description-button {
+  width: 241px;
+  height: 48px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #fd377e;
+  border: 2px solid #fd377e;
+  border-radius: 8px;
+  cursor: pointer;
+}

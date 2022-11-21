@@ -5,7 +5,7 @@ import Label from "../label";
 import Select from "../select";
 import "./style.css";
 
-function Aside({ addItem }) {
+function Aside({ addItem, check }) {
   const [userInputText, setUserInputText] = useState("");
   const [userInputNumber, setUserInputNumber] = useState(1);
   const [userInputSelect, setUserInputSelect] = useState("entrada");

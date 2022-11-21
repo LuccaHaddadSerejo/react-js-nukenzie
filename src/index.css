@@ -24,3 +24,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+@media (min-width: 800px) {
+  .container {
+    margin: 0 100px;
+    max-width: 1440px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    margin: 0 auto;
+    max-width: 1500px;
+  }
+}

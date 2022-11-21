@@ -2,18 +2,33 @@ import { useState } from "react";
 import "./App.css";
 import Aside from "./components/aside";
 import FinanceList from "./components/mainList";
-import ItemCard from "./components/card";
+import { ItemCardFull, ItemCardEmpty } from "./components/card";
 import Filter from "./components/filterSection";
 import TotalMoney from "./components/total";
 import Header from "./components/header";
-
+import LandingPage from "./components/landingPage";
 function App() {
   const [financeResume, setFinanceResume] = useState([]);
   const [financeResumeFilter, setFinanceResumeFilter] = useState([]);
+  const [emptyList, setEmptyList] = useState(true);
+  const [islandingPage, setisLandingPage] = useState(true);
 
   function addItem(newItem) {
     setFinanceResume([...financeResume, newItem]);
     setFinanceResumeFilter([...financeResumeFilter, newItem]);
+    if (financeResumeFilter === []) {
+      setEmptyList(true);
+    } else {
+      setEmptyList(false);
+    }
+  }
+
+  function changePageToDashBoard() {
+    setisLandingPage(false);
+  }
+
+  function changePageToLandingPage() {
+    setisLandingPage(true);
   }
 
   function removeItem(itemToRemove) {
@@ -21,6 +36,11 @@ function App() {
     const itemsFilter = financeResumeFilter.filter(
       (elt) => elt.name !== itemToRemove.name
     );
+    if (itemsFilter.length === 0) {
+      setEmptyList(true);
+    } else {
+      setEmptyList(false);
+    }
 
     setFinanceResume(items);
     setFinanceResumeFilter(itemsFilter);
@@ -56,31 +76,50 @@ function App() {
 
   return (
     <div className="App">
-      <Header></Header>
-      <main className="main container">
-        <section className="aside-container">
-          <Aside addItem={addItem}></Aside>
-          <TotalMoney value={total}></TotalMoney>
-        </section>
-        <section className="list-container">
-          <Filter
-            filterEntry={filterItemEntry}
-            filterRemove={filterItemLeft}
-            filterAll={filterAll}
-          ></Filter>
-          <FinanceList>
-            {financeResume.map((elt, index) => {
-              return (
-                <ItemCard
-                  key={index}
-                  item={elt}
-                  removeItem={removeItem}
-                ></ItemCard>
-              );
-            })}
-          </FinanceList>
-        </section>
-      </main>
+      {islandingPage === true ? (
+        <LandingPage changePage={changePageToDashBoard}></LandingPage>
+      ) : (
+        <div>
+          <Header changePage={changePageToLandingPage}></Header>
+          <main className="main container">
+            <section className="aside-container">
+              <Aside addItem={addItem}></Aside>
+              {emptyList === false ? (
+                <TotalMoney value={total}></TotalMoney>
+              ) : null}
+            </section>
+            <section className="list-container">
+              <Filter
+                filterEntry={filterItemEntry}
+                filterRemove={filterItemLeft}
+                filterAll={filterAll}
+              ></Filter>
+              {emptyList === false ? (
+                <FinanceList>
+                  {financeResume.map((elt, index) => {
+                    return (
+                      <ItemCardFull
+                        key={index}
+                        item={elt}
+                        removeItem={removeItem}
+                      ></ItemCardFull>
+                    );
+                  })}
+                </FinanceList>
+              ) : (
+                <FinanceList>
+                  <h2 className="list-title">
+                    Você ainda não possui nenhum lançamento
+                  </h2>
+                  <ItemCardEmpty></ItemCardEmpty>
+                  <ItemCardEmpty></ItemCardEmpty>
+                  <ItemCardEmpty></ItemCardEmpty>
+                </FinanceList>
+              )}
+            </section>
+          </main>
+        </div>
+      )}
     </div>
   );
 }
