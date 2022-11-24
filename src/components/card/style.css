@@ -65,12 +65,11 @@
 
 .card-empty {
   width: 100%;
-  max-width: 560px;
   list-style: none;
 }
 
 .img-list {
-  max-width: 100%;
+  width: 100%;
 }
 
 @media (min-width: 600px) {

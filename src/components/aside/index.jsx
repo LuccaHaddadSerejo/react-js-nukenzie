@@ -5,10 +5,37 @@ import Label from "../label";
 import Select from "../select";
 import "./style.css";
 
-function Aside({ addItem, check }) {
+function Aside({
+  allItems,
+  allFilteredItems,
+  setList,
+  setFilteredList,
+  emptyList,
+}) {
   const [userInputText, setUserInputText] = useState("");
-  const [userInputNumber, setUserInputNumber] = useState(1);
+  const [userInputNumber, setUserInputNumber] = useState("");
   const [userInputSelect, setUserInputSelect] = useState("entrada");
+
+  function handleChangeText(event) {
+    setUserInputText(event.target.value);
+  }
+
+  function handleChangeNumber(event) {
+    setUserInputNumber(event.target.value);
+  }
+
+  function handleChangeSelect(event) {
+    setUserInputSelect(event.target.value);
+  }
+
+  function handleAdd(newItem) {
+    setList(() => [...allItems, newItem]);
+    setFilteredList(() => [...allFilteredItems, newItem]);
+    setUserInputText("");
+    setUserInputNumber("");
+
+    allFilteredItems === [] ? emptyList(true) : emptyList(false);
+  }
 
   function addEntryItemToResumeFinance(description, value, option) {
     const obj = {
@@ -27,7 +54,6 @@ function Aside({ addItem, check }) {
       type: option,
     };
 
-    console.log(obj);
     return obj;
   }
 
@@ -36,7 +62,7 @@ function Aside({ addItem, check }) {
       <form
         className="form"
         onSubmit={(event) =>
-          addItem(
+          handleAdd(
             userInputSelect === "saida"
               ? addOutItemToResumeFinance(
                   userInputText,
@@ -59,7 +85,7 @@ function Aside({ addItem, check }) {
             value={userInputText}
             name="inputDescription"
             placeholder={"Digite aqui sua descrição"}
-            onChange={(event) => setUserInputText(event.target.value)}
+            onChange={handleChangeText}
           ></Input>
         </div>
         <span className="form-span">Ex: Compra de roupas</span>
@@ -70,7 +96,7 @@ function Aside({ addItem, check }) {
               type={"number"}
               value={userInputNumber}
               name="inputValue"
-              onChange={(event) => setUserInputNumber(event.target.value)}
+              onChange={handleChangeNumber}
             ></Input>
             <span className="form-span-two">R$</span>
           </div>
@@ -79,7 +105,7 @@ function Aside({ addItem, check }) {
             <Select
               name={"select"}
               value={userInputSelect}
-              onChange={(event) => setUserInputSelect(event.target.value)}
+              onChange={handleChangeSelect}
             ></Select>
           </div>
         </div>

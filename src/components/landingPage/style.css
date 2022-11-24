@@ -1,17 +1,17 @@
 .all {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-color: #212529;
 }
 
 .landing-full {
   height: 100vh;
-  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  margin: 0 15px;
 }
 
 .description-div {
@@ -45,4 +45,9 @@
   border: 2px solid #fd377e;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.ilustration-img {
+  width: 100%;
+  max-width: 500px;
 }
