@@ -38,7 +38,9 @@ function App() {
                 emptyList={setEmptyList}
               ></Aside>
               {emptyList === false ? (
-                <TotalSection allFilteredItems={financeResume}></TotalSection>
+                <TotalSection
+                  allFilteredItems={financeResumeFilter}
+                ></TotalSection>
               ) : null}
             </section>
             <section className="list-container">

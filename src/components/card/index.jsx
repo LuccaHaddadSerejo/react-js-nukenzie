@@ -13,10 +13,8 @@ export function ItemCardFull({
   const type = item.type;
 
   function handleRemove(itemToRemove) {
-    const items = allItems.filter((elt) => elt.name !== itemToRemove.name);
-    const itemsFilter = allFilteredItems.filter(
-      (elt) => elt.name !== itemToRemove.name
-    );
+    const items = allItems.filter((elt) => elt !== itemToRemove);
+    const itemsFilter = allFilteredItems.filter((elt) => elt !== itemToRemove);
 
     itemsFilter.length === 0 ? emptyList(true) : emptyList(false);
 
