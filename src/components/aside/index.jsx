@@ -57,27 +57,26 @@ function Aside({
     return obj;
   }
 
+  function submit(event) {
+    event.preventDefault();
+    handleAdd(
+      userInputSelect === "saida"
+        ? addOutItemToResumeFinance(
+            userInputText,
+            userInputNumber,
+            userInputSelect
+          )
+        : addEntryItemToResumeFinance(
+            userInputText,
+            userInputNumber,
+            userInputSelect
+          )
+    );
+  }
+
   return (
     <div className="form-container">
-      <form
-        className="form"
-        onSubmit={(event) =>
-          handleAdd(
-            userInputSelect === "saida"
-              ? addOutItemToResumeFinance(
-                  userInputText,
-                  userInputNumber,
-                  userInputSelect
-                )
-              : addEntryItemToResumeFinance(
-                  userInputText,
-                  userInputNumber,
-                  userInputSelect
-                ),
-            event.preventDefault()
-          )
-        }
-      >
+      <form className="form" onSubmit={submit}>
         <div className="input-set-one">
           <Label name={"select"}>Descrição</Label>
           <Input
@@ -103,8 +102,8 @@ function Aside({
           <div className="input-set-two">
             <Label name={"select"}>Tipo de valor</Label>
             <Select
+              defaultValue={userInputSelect}
               name={"select"}
-              value={userInputSelect}
               onChange={handleChangeSelect}
             ></Select>
           </div>

@@ -1,8 +1,13 @@
 import "./style.css";
 
-function Select({ name, value, onChange }) {
+function Select({ name, defaultValue, onChange }) {
   return (
-    <select className="select" name={name} value={value} onChange={onChange}>
+    <select
+      className="select"
+      name={name}
+      defaultValue={defaultValue}
+      onChange={onChange}
+    >
       <option value={"entrada"}>Entrada</option>
       <option value={"saida"}>Saída</option>
     </select>
