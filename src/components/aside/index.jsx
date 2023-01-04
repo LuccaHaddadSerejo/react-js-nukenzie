@@ -84,7 +84,7 @@ function Aside({
             value={userInputText}
             name="inputDescription"
             placeholder={"Digite aqui sua descrição"}
-            onClick={handleChangeText}
+            onChange={handleChangeText}
           ></Input>
         </div>
         <span className="form-span">Ex: Compra de roupas</span>
